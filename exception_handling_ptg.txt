@@ -1,0 +1,44 @@
+//Arithmatic exception in java
+import java.util.*;
+
+class Main
+{
+    public static void main(String args[])
+    {
+        try
+        {
+           int result=10/0;
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+}
+--------------------------------------------------------------------------------
+//custom exception
+import java.util.*;
+
+class InvalidAgeException extends Exception
+{
+    public InvalidAgeException(String message)
+    {
+        super(message);
+    }
+}
+
+class Main
+{
+    public static void main(String[] args)
+    {
+        try {
+            int age=-1;
+            if(age<0)
+            {
+                throw new InvalidAgeException("Age must be greater than 0");
+            }
+        } catch(InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
